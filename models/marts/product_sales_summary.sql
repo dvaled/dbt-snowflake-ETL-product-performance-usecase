@@ -1,0 +1,6 @@
+select
+    PRODUCTKEY,
+    SUM(ORDERQUANTITY) AS TOTAL_SALES_VOLUME,
+    SUM(SALESAMOUNT) AS TOTAL_REVENUE,
+from {{ ref('stg_bike_sales_sales') }}
+GROUP BY PRODUCTKEY

@@ -1,0 +1,18 @@
+sources:
+  - name: bike_sales
+    database: BIKE_SALES__SAMPLE_DATA
+    schema: BIKES_SALES
+    tables:
+      - name: '"11_PRODUCTS"'  # Add quotes here
+        columns: 
+          - name: PRODUCTKEY
+            tests:
+              - unique
+              - not_null
+      - name: '"1_SALES"'  # Add quotes here
+        columns: 
+          - name: PRODUCTKEY
+            tests:
+              - relationships:
+                  to: source('bike_sales', '"11_PRODUCTS"')  # Add quotes here
+                  field: PRODUCTKEY

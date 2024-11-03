@@ -1,0 +1,9 @@
+select 
+    PRODUCTKEY,
+    ORDERQUANTITY,
+    UNITPRICE,
+    SALESAMOUNT,
+    DISCOUNTAMOUNT,
+    TOTALPRODUCTCOST,
+    ORDERTIMESTAMP,
+from {{ source('bike_sales', '"1_SALES"') }}
